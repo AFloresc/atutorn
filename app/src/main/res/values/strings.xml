@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">ATutor</string>
+    <string name="lesson_description">Lección</string>
+    <string name="abrir_lección">Abrir lección</string>
+    <string name="search_here">buscar aqui...</string>
+
+    <string-array name="Concept_names">
+        <item>Activity</item>
+        <item>Intent</item>
+        <item>Dalvik</item>
+        <item>Gradle</item>
+        <item>JDK</item>
+        <item>Android Studio</item>
+        <item>Concept 1</item>
+        <item>Concept 2</item>
+        <item>Concept 3</item>
+        <item>Concept 4</item>
+        <item>Concept 5</item>
+    </string-array>
+
+    <array name="concept_pics">
+        <item>@mipmap/ic_launcher</item>
+        <item>@mipmap/ic_launcher</item>
+        <item>@mipmap/ic_launcher</item>
+        <item>@mipmap/ic_launcher</item>
+        <item>@mipmap/ic_launcher</item>
+        <item>@mipmap/ic_launcher</item>
+    </array>
+
+    <string-array name="statues">
+        <item>Blogging</item>
+        <item>Availible</item>
+        <item>Availible</item>
+        <item>Availible</item>
+        <item>Availible</item>
+        <item>Availible</item>
+    </string-array>
+
+    <string-array name="concept_type">
+        <item>Definition</item>
+        <item>Definition</item>
+        <item>Definition</item>
+        <item>Definition</item>
+        <item>Definition</item>
+        <item>Definition</item>
+    </string-array>
+    <string name="title_activity_login2">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="pref_file">com.inredec.preference_file</string>
+    <string name="pref_user_name">com.inredec.preference_user_name</string>
+    <string name="pref_login_status">com.inredec.preference_login_status</string>
+
+    <string name="action_settings">settings</string>
+    <string name="lesson_name">Lesson name:</string>
+    <string name="aa_description">Lesson description</string>
+    <string name="quiz_answer1">Answer 1</string>
+    <string name="quiz_answer2">Answer 2</string>
+    <string name="quiz_answer3">Answer 3</string>
+    <string name="quiz_answer4">Answer 4</string>
+
+    <string name="title_activity_main_fullscreen">MainFullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
+</resources>
