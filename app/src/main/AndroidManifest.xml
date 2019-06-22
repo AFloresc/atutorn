@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.inredec.atutorn">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentationlayer.controllers.activities.TestActivity"></activity>
+        <activity android:name=".presentationlayer.controllers.activities.LessonDisplayActivity"></activity>
+        <activity android:name=".presentationlayer.controllers.activities.TestActivity" />
         <activity android:name=".presentationlayer.controllers.activities.MainMenuActivity" />
         <activity android:name=".presentationlayer.controllers.activities.LoginActivity" />
         <activity android:name=".presentationlayer.controllers.activities.MainActivity">
