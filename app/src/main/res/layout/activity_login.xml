@@ -8,7 +8,7 @@
     android:paddingRight="18dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/malte_baumann_82231"
-    tools:context="com.inredec.atutor.presentatiolayer.controllers.activities.LoginActivity">
+    tools:context="com.inredec.atutorn.presentationlayer.controllers.activities.LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
