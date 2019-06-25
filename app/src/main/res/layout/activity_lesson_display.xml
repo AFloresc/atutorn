@@ -4,18 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentationlayer.controllers.activities.LessonDisplayActivity">
+    android:orientation="vertical"
+    tools:context=".presentationlayer.controllers.activities.LessonDisplayActivity"
+    android:background="@drawable/library_transparente">
+    <LinearLayout
+        android:layout_width="413dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/logoatutor3"
+        />
 
     //Add the RecyclerView widget//
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/myRecyclerView"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/myRecyclerView"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+           />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

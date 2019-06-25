@@ -83,6 +83,10 @@
     <string name="tex1_help_options">En esta sección se encuentran los parámetros de configuracion de la aplicación. En este apartado se encuentra la selección del idioma de los cursos. Actualmente son selecionables el Catalan, Español e Inglés. Se irán añadiendo otro idiomas progresivamente.</string>
     <string name="tex1_help_profile">En esta sección podemos consular los datos de usuario, incluyendo la nota media de los cuestionarios de autoevaluación. Esta sección incluye un apartado para contactar con el autor de la aplicación. No dude en contactar con el autor para cualquier sugerencia, reporte de fallo o comentario que quiera realizar.</string>
     <string name="tex1_help_about">El desarrollo de esta aplicación forma parte de un Trabajo de Fin de Grado de Tecnocampus Escola Superior Politècnica, centro adscrito a UPF. Autor: Alejandro J. Flores Cumella - 2019.</string>
+    <string name="contact_scrn_title">Contacta con el autor</string>
+    <string name="contact_scn_subject">Asunto:</string>
+    <string name="contact_scn_message">Mensaje:</string>
+    <string name="contact_scn_from">Mi correo:</string>
 
 
 </resources>

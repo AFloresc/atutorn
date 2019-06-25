@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="10dp"
+    android:background="@null"
+    android:paddingBottom="6dp"
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/card_bg"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tv_item_lesson_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:text="Simple Title Text"
+            android:textColor="@color/title_text_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_item_lesson_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_item_lesson_title"
+            android:layout_alignStart="@+id/tv_item_lesson_title"
+            android:layout_alignLeft="@id/tv_item_lesson_title"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:lineSpacingExtra="8dp"
+            android:text="TextView fadffff fgffgkglfkdgk gdflkgdflkgkfd kljkjk jkljkjjkjkjkjkkkkjkj jkljjjjjkljljjj jkljj   jkkjkkjkjkklklj kjjljjlkjjljljjlkjlkjklj"
+            android:textColor="@color/content_text_color" />
+
+        <TextView
+            android:id="@+id/tv_item_lesson_viewed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Visto"
+            android:textColor="@color/content_text_color" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_item_lesson"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout"
+        app:srcCompat="@mipmap/ic_launcher" />
+</android.support.constraint.ConstraintLayout>

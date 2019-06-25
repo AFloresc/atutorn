@@ -3,6 +3,7 @@ package com.inredec.atutorn.presentationlayer.controllers.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.inredec.atutorn.R;
@@ -43,6 +44,7 @@ public class LessonDisplayActivity extends AppCompatActivity {
             @Override
             //Handle a successful response//
             public void onResponse(Call<List<Lesson>> call, Response<List<Lesson>> response) {
+
                 loadDataList(response.body());
             }
             //Handle execution failures//
@@ -59,9 +61,10 @@ public class LessonDisplayActivity extends AppCompatActivity {
     //Display the retrieved data as a list//
     private void loadDataList(List<Lesson> lessons) {
         //Get a reference to the RecyclerView//
-
+       // Log.d("ONRESPONSE", "loadDataList is being executed");
+       // Log.d("ONRESPONSE",   "Lessons size:"+lessons.size());
         myRecyclerView = findViewById(R.id.myRecyclerView);
-        myAdapter = new MyLessonAdapter(lessons);
+        myAdapter = new MyLessonAdapter(lessons, LessonDisplayActivity.this);
 
         //Set the Adapter to the RecyclerView//
 

@@ -3,6 +3,8 @@ package com.inredec.atutorn.model.businesslayer.entities;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Arrays;
+
 public class Lesson {
 
     @SerializedName("lessonID")
@@ -102,5 +104,19 @@ public class Lesson {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return "Lesson{" +
+                "lessonID=" + lessonID +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", image='" + image + '\'' +
+                ", language='" + language + '\'' +
+                ", contents=" + Arrays.toString(contents) +
+                ", courseID='" + courseID + '\'' +
+                ", position='" + position + '\'' +
+                '}';
     }
 }

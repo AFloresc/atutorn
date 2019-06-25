@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/library_transparente"
+    tools:context=".presentationlayer.controllers.activities.ContactActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:src="@drawable/logoatutor3" />
+
+
+        <TextView
+            android:id="@+id/tv_helpTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="@string/contact_scrn_title"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_contact_scr_from"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/contact_scn_from"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="1dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/et_contact_from"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="16sp"
+            android:inputType="textEmailAddress"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_contact_scr_subject"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/contact_scn_subject"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        
+        <EditText
+            android:id="@+id/et_contact_subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_contact_scr_message"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/contact_scn_message"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/et_contact_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="10"
+            android:gravity="start|top"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="16sp"
+            />
+        <Button
+            android:id="@+id/bt_contact_scr_send"
+            android:layout_width="221dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/myselectorsend"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_profile"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
