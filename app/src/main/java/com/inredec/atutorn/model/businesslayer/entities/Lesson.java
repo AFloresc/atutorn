@@ -1,6 +1,11 @@
 package com.inredec.atutorn.model.businesslayer.entities;
 
 
+import android.content.Context;
+import android.location.Location;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Arrays;
@@ -26,12 +31,12 @@ public class Lesson {
     private Content[] contents;
 
     @SerializedName("courseID")
-    private String courseID;
+    private long courseID;
 
     @SerializedName("position")
-    private String position;
+    private int position;
 
-    public Lesson(long lessonID, String title, String text, String image, String language, Content[] contents, String courseID, String position) {
+    public Lesson(long lessonID, String title, String text, String image, String language, Content[] contents, long courseID, int position) {
         this.lessonID = lessonID;
         this.title = title;
         this.text = text;
@@ -41,6 +46,7 @@ public class Lesson {
         this.courseID = courseID;
         this.position = position;
     }
+
 
     public long getLessonID() {
         return lessonID;
@@ -66,11 +72,11 @@ public class Lesson {
         return contents;
     }
 
-    public String getCourseID() {
+    public long getCourseID() {
         return courseID;
     }
 
-    public String getPosition() {
+    public int getPosition() {
         return position;
     }
 
@@ -98,11 +104,11 @@ public class Lesson {
         this.contents = contents;
     }
 
-    public void setCourseID(String courseID) {
+    public void setCourseID(long courseID) {
         this.courseID = courseID;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(int position) {
         this.position = position;
     }
 
@@ -119,4 +125,8 @@ public class Lesson {
                 ", position='" + position + '\'' +
                 '}';
     }
+
+
+
+
 }

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentationlayer.controllers.activities.LessonsActivity"></activity>
+        <activity android:name=".presentationlayer.controllers.activities.ConceptsActivity"></activity>
+        <activity android:name=".presentationlayer.controllers.activities.LessonsActivity" />
         <activity android:name=".presentationlayer.controllers.activities.ContactActivity" />
         <activity android:name=".presentationlayer.controllers.activities.HelpActivity" />
         <activity android:name=".presentationlayer.controllers.activities.LessonDisplayActivity" />

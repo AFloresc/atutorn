@@ -22,9 +22,12 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.ViewHo
     private List<Lesson> dataList;
     private Context context;
 
+    private OnLessonListener onLessonListener;
+
     public MyLessonAdapter(List<Lesson> dataList , Context context){
         this.dataList = dataList;
         this.context = context;
+        this.onLessonListener = (OnLessonListener)context;
     }
 
     @NonNull
@@ -32,7 +35,7 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         //View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.lesson_layout,parent,false);
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lesson,parent,false);
-        return new ViewHolder(v);
+        return new ViewHolder(v, onLessonListener);
     }
 
     @Override
@@ -51,18 +54,21 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.ViewHo
 
     @Override
     public int getItemCount() {
+
         return dataList.size();
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView tvname;
         private ImageView img;
 
         private TextView tvDescription;
         private TextView tvViewed;
 
-        public ViewHolder(View itemView) {
+        OnLessonListener onLessonListener;
+
+        public ViewHolder(View itemView, OnLessonListener onLessonListener) {
             super(itemView);
             //tvname=(TextView)itemView.findViewById(R.id.txt_name);
             //img=(ImageView)itemView.findViewById(R.id.image_view);
@@ -71,7 +77,19 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.ViewHo
             img=(ImageView)itemView.findViewById(R.id.iv_item_lesson);
             tvViewed=(TextView)itemView.findViewById(R.id.tv_item_lesson_viewed);
             tvDescription=(TextView)itemView.findViewById(R.id.tv_item_lesson_description);
+
+            this.onLessonListener = onLessonListener;
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            onLessonListener.onLessonClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnLessonListener{
+        void onLessonClick(int position);
     }
 
 /*

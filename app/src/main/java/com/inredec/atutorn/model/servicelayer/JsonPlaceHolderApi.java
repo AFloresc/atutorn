@@ -1,5 +1,6 @@
 package com.inredec.atutorn.model.servicelayer;
 
+import com.inredec.atutorn.model.businesslayer.entities.Concept;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 
 import java.util.List;
@@ -11,4 +12,7 @@ public interface JsonPlaceHolderApi {
 
     @GET("lessons/languages/es")
     Call<List<Lesson>> getLessons();
+
+    @GET("/concepts/language/es")
+    Call<List<Concept>> getConcepts();
 }

@@ -1,5 +1,7 @@
 package com.inredec.atutorn.presentationlayer.controllers.activities;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.inredec.atutorn.R;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 import com.inredec.atutorn.model.servicelayer.JsonPlaceHolderApi;
@@ -21,11 +24,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LessonsActivity extends AppCompatActivity {
-   // private TextView textViewResult;
+public class LessonsActivity extends AppCompatActivity implements MyLessonAdapter.OnLessonListener{
+    private static final String TAG = "LessonsActivity";
+    // private TextView textViewResult;
     private MyLessonAdapter myAdapter;
     private RecyclerView myRecyclerView;
 
+    private List<Lesson> lessons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +95,28 @@ public class LessonsActivity extends AppCompatActivity {
         myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         myAdapter = new MyLessonAdapter(lessons, LessonsActivity.this);
 
+        this.lessons = lessons;
         //Set the Adapter to the RecyclerView//
-
         myRecyclerView.setAdapter(myAdapter);
     }
 
+    @Override
+    public void onLessonClick(int position) {
+        Log.d(TAG, "onNoteClick: clicked. Item position: " + position);
+        Intent intent = new Intent(this, HelpActivity.class);
+        //look for parceable objects!!
+        intent.putExtra("some_object", lessons.get(position).getLessonID());
+        saveData(lessons.get(position));
+        startActivity(intent);
+    }
+
+    private void saveData(Lesson lesson){
+        // NEW METHOD https://www.youtube.com/watch?v=jcliHGR3CHo
+        SharedPreferences sharedPreferences = getSharedPreferences("shared_preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(lesson);
+        editor.putString("clicked_lesson", json);
+        editor.apply();
+    }
 }
