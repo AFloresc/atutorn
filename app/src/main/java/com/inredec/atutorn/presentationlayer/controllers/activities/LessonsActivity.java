@@ -6,16 +6,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.inredec.atutorn.R;
+import com.inredec.atutorn.model.businesslayer.entities.Concept;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 import com.inredec.atutorn.model.servicelayer.JsonPlaceHolderApi;
 import com.inredec.atutorn.presentationlayer.adapters.MyLessonAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,12 +38,20 @@ public class LessonsActivity extends AppCompatActivity implements MyLessonAdapte
 
     private List<Lesson> lessons;
 
+    private EditText etSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lessons);
 
-       // textViewResult = findViewById(R.id.tv_view__result);
+        etSearch=(EditText)findViewById(R.id.et_lesson_seach);
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+
+        // textViewResult = findViewById(R.id.tv_view__result);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://atutor.appspot.com/api/1.0/atapi/")
@@ -83,6 +97,38 @@ public class LessonsActivity extends AppCompatActivity implements MyLessonAdapte
                 Toast.makeText(LessonsActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+
+
+            }
+        });
+    }
+
+    //Filter RecyclerView by search
+    private void filter(String text) {
+        List<Lesson> filteredList = new ArrayList<>();
+
+        for (Lesson lesson : lessons){
+            if(lesson.getTitle().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(lesson);
+            }
+        }
+
+        myAdapter.filerList((ArrayList)filteredList);
     }
 
     //Display the retrieved data as a list//

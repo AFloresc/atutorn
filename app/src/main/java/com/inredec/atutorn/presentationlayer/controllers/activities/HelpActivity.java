@@ -36,6 +36,10 @@ public class HelpActivity extends AppCompatActivity {
     @BindView(R.id.tv_text2_profile)
     TextView tv_text2_profile;
 
+    @BindView(R.id.tv_text1)
+    TextView tv_main_title;
+
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class HelpActivity extends AppCompatActivity {
         tv_text2_concepts.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
         tv_text2_options.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
         tv_text2_profile.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
+        tv_main_title.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
 
         loaddata();
     }

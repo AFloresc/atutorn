@@ -25,6 +25,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import android.view.View.OnKeyListener;
+import android.view.View;
+import android.view.KeyEvent;
+
 public class ConceptsActivity extends AppCompatActivity implements MyConceptAdapter.OnConceptListener{
 
     private static final String TAG = "ConceptsActivity";
@@ -103,7 +107,19 @@ public class ConceptsActivity extends AppCompatActivity implements MyConceptAdap
             }
         });
 
-
+        etSearch.setOnKeyListener(new OnKeyListener() {
+            public boolean onKey(View view, int keyCode, KeyEvent keyevent) {
+                //If the keyevent is a key-down event on the "enter" button
+                if ((keyevent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    //...
+                    // Perform your action on key press here
+                    Toast.makeText(ConceptsActivity.this, "Registrando búsqueda", Toast.LENGTH_SHORT).show();
+                    // ...
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     private void filter(String text) {
@@ -117,6 +133,7 @@ public class ConceptsActivity extends AppCompatActivity implements MyConceptAdap
 
         myAdapter.filerList((ArrayList)filteredList);
     }
+
     private void loadDataList(List<Concept> concepts) {
         myRecyclerView = (RecyclerView) findViewById(R.id.myRecyclerView);
         myRecyclerView.setHasFixedSize(true);

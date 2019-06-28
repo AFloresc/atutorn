@@ -13,8 +13,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.inredec.atutorn.R;
+import com.inredec.atutorn.model.businesslayer.entities.Concept;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.ViewHolder>{
@@ -92,6 +94,10 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.ViewHo
         void onLessonClick(int position);
     }
 
+    public void filerList(ArrayList<Lesson> filteredList){
+        dataList = filteredList;
+        notifyDataSetChanged();
+    }
 /*
     public class CustomViewHolder  extends RecyclerView.ViewHolder{
         public final View myView;

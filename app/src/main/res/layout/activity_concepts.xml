@@ -34,7 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:id="@+id/et_concept_seach"/>
+            android:id="@+id/et_concept_seach"
+            android:maxLines="1"
+            android:hint="@string/search_in_list"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/myRecyclerView"
