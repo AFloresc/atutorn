@@ -13,6 +13,6 @@ public interface JsonPlaceHolderApi {
     @GET("lessons/languages/es")
     Call<List<Lesson>> getLessons();
 
-    @GET("/concepts/language/es")
+    @GET("concepts/languages/es")
     Call<List<Concept>> getConcepts();
 }

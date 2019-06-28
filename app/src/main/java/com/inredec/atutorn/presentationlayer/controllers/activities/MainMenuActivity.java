@@ -25,6 +25,9 @@ public class MainMenuActivity extends AppCompatActivity {
     @BindView(R.id.bt_lessons)
     Button btLessons;
 
+    @BindView(R.id.bt_concepts)
+    Button btConcepts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,14 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainMenuActivity.this, LessonsActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        btConcepts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainMenuActivity.this, ConceptsActivity.class);
                 startActivity(myIntent);
             }
         });

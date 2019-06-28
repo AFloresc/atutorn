@@ -50,16 +50,20 @@ public class ConceptsActivity extends AppCompatActivity implements MyConceptAdap
                     //textViewResult.setText("Code: " + response.code());
                     Toast.makeText(ConceptsActivity.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
-                }
+                }else if (response.body()==null) {
+                    Toast.makeText(ConceptsActivity.this, "No hay conceptos", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
 
-                List<Concept> concepts = response.body();
+                    List<Concept> concepts = response.body();
 
-                Log.d("ONRESPONSE", response.toString());
-                Log.d("ONRESPONSE", "Response body: "+ response.body().toString());
-                for (Concept concept : concepts){
-                    Log.d("ONRESPONSE", concept.toString());
+                    Log.d("ONRESPONSE", response.toString());
+                    Log.d("ONRESPONSE", "Response body: " + response.body().toString());
+                    for (Concept concept : concepts) {
+                        Log.d("ONRESPONSE", concept.toString());
+                    }
+                    loadDataList(response.body());
                 }
-                loadDataList(response.body());
             }
 
             @Override
@@ -70,7 +74,7 @@ public class ConceptsActivity extends AppCompatActivity implements MyConceptAdap
     }
 
 
-    private void loadDataList(List<Concept> body) {
+    private void loadDataList(List<Concept> concepts) {
         myRecyclerView = (RecyclerView) findViewById(R.id.myRecyclerView);
         myRecyclerView.setHasFixedSize(true);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(this));

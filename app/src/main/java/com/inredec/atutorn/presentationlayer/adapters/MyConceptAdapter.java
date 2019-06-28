@@ -2,13 +2,16 @@ package com.inredec.atutorn.presentationlayer.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.inredec.atutorn.R;
 import com.inredec.atutorn.model.businesslayer.entities.Concept;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
@@ -16,6 +19,9 @@ import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 import java.util.List;
 
 public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.ViewHolder> {
+    private static final String TAG = "MyConceptAdapter";
+    private static final String CONCEPTS_IMAGE_URL = "https://res.cloudinary.com/dnvu5jzwt/image/upload/v1561711112/conceptsALL_mobc2f.png";
+
     private List<Concept> dataList;
     private Context context;
 
@@ -30,13 +36,23 @@ public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lesson,parent,false);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_concept,parent,false);
+        Log.d( TAG,"onCreateViewHolder");
         return new MyConceptAdapter.ViewHolder(v, onConceptListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyConceptAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull MyConceptAdapter.ViewHolder viewHolder, int position) {
+        Concept concept = dataList.get(position);
+        Log.d( TAG,"Concept Title: "+ concept.getTitle());
+        viewHolder.tvname.setText(concept.getTitle());
+        viewHolder.tvDescription.setText(concept.getDescription());
 
+        Glide.with(this.context)
+                .load(CONCEPTS_IMAGE_URL)
+                .centerCrop()
+                .override(50, 50)
+                .into(viewHolder.img);
     }
 
     @Override
@@ -53,20 +69,23 @@ public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.View
 
         MyConceptAdapter.OnConceptListener onConceptistener;
 
+
+
         public ViewHolder(View itemView, MyConceptAdapter.OnConceptListener onLessonListener) {
             super(itemView);
             //tvname=(TextView)itemView.findViewById(R.id.txt_name);
             //img=(ImageView)itemView.findViewById(R.id.image_view);
 
 
-            tvname=(TextView)itemView.findViewById(R.id.tv_item_lesson_title);
-            img=(ImageView)itemView.findViewById(R.id.iv_item_lesson);
-            tvViewed=(TextView)itemView.findViewById(R.id.tv_item_lesson_viewed);
-            tvDescription=(TextView)itemView.findViewById(R.id.tv_item_lesson_description);
+            tvname=(TextView)itemView.findViewById(R.id.tv_item_concept_title);
+            img=(ImageView)itemView.findViewById(R.id.iv_item_concept);
+
+            tvDescription=(TextView)itemView.findViewById(R.id.tv_item_concept_description);
 
             this.onConceptistener = onConceptListener;
             itemView.setOnClickListener(this);
         }
+
 
         @Override
         public void onClick(View view) {
