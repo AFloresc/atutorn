@@ -4,7 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.inredec.atutorn.R;
@@ -12,6 +16,7 @@ import com.inredec.atutorn.model.businesslayer.entities.Concept;
 import com.inredec.atutorn.model.servicelayer.JsonPlaceHolderApi;
 import com.inredec.atutorn.presentationlayer.adapters.MyConceptAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,10 +34,17 @@ public class ConceptsActivity extends AppCompatActivity implements MyConceptAdap
 
     private List<Concept> concepts;
 
+    private EditText etSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_concepts);
+
+        etSearch=(EditText)findViewById(R.id.et_concept_seach);
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://atutor.appspot.com/api/1.0/atapi/")
@@ -71,9 +83,40 @@ public class ConceptsActivity extends AppCompatActivity implements MyConceptAdap
 
             }
         });
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+
+
+            }
+        });
+
+
     }
 
+    private void filter(String text) {
+        List<Concept> filteredList = new ArrayList<>();
 
+        for (Concept concept : concepts){
+            if(concept.getTitle().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(concept);
+            }
+        }
+
+        myAdapter.filerList((ArrayList)filteredList);
+    }
     private void loadDataList(List<Concept> concepts) {
         myRecyclerView = (RecyclerView) findViewById(R.id.myRecyclerView);
         myRecyclerView.setHasFixedSize(true);

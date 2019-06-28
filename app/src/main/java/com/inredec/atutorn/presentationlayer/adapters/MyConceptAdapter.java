@@ -4,10 +4,13 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +19,7 @@ import com.inredec.atutorn.R;
 import com.inredec.atutorn.model.businesslayer.entities.Concept;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.ViewHolder> {
@@ -55,6 +59,7 @@ public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.View
                 .into(viewHolder.img);
     }
 
+
     @Override
     public int getItemCount() {
         return dataList.size();
@@ -65,7 +70,7 @@ public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.View
         private ImageView img;
 
         private TextView tvDescription;
-        private TextView tvViewed;
+        private EditText etSearch;
 
         MyConceptAdapter.OnConceptListener onConceptistener;
 
@@ -82,6 +87,7 @@ public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.View
 
             tvDescription=(TextView)itemView.findViewById(R.id.tv_item_concept_description);
 
+
             this.onConceptistener = onConceptListener;
             itemView.setOnClickListener(this);
         }
@@ -95,6 +101,11 @@ public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.View
 
     public interface OnConceptListener{
         void onConceptClick(int position);
+    }
+
+    public void filerList(ArrayList<Concept> filteredList){
+        dataList = filteredList;
+        notifyDataSetChanged();
     }
 }
 
