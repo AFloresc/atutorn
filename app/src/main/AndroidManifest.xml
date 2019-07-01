@@ -11,17 +11,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".presentationlayer.controllers.activities.LessonDetailActivity"></activity>
-        <activity android:name=".presentationlayer.controllers.activities.ConceptsActivity" />
-        <activity android:name=".presentationlayer.controllers.activities.LessonsActivity" />
-        <activity android:name=".presentationlayer.controllers.activities.ContactActivity" />
-        <activity android:name=".presentationlayer.controllers.activities.HelpActivity" />
-        <activity android:name=".presentationlayer.controllers.activities.LessonDisplayActivity" />
-        <activity android:name=".presentationlayer.controllers.activities.TestActivity" />
-        <activity android:name=".presentationlayer.controllers.activities.MainMenuActivity" />
-        <activity android:name=".presentationlayer.controllers.activities.LoginActivity" />
-        <activity android:name=".presentationlayer.controllers.activities.MainActivity">
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".presentationlayer.controllers.activities.QuizActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".presentationlayer.controllers.activities.LessonDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.ConceptsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.LessonsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.ContactActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.HelpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.LessonDisplayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.TestActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.MainMenuActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".presentationlayer.controllers.activities.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

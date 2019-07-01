@@ -19,9 +19,25 @@ public class Question {
     @SerializedName("answer3")
     private String answer3;
 
-    @SerializedName("right_answer")
-    private String right_answer;
+    @SerializedName("answer4")
+    private String answer4;
 
+    @SerializedName("right_answer")
+    private int right_answer;
+
+    @SerializedName("choice")
+    private int choice;
+
+    public Question(int id, String heather, String answer1, String answer2, String answer3, String answer4, int right_answer, int choice) {
+        this.id = id;
+        this.heather = heather;
+        this.answer1 = answer1;
+        this.answer2 = answer2;
+        this.answer3 = answer3;
+        this.answer4 = answer4;
+        this.right_answer = right_answer;
+        this.choice = choice;
+    }
 
     public int getId() {
         return id;
@@ -30,6 +46,8 @@ public class Question {
     public void setId(int id) {
         this.id = id;
     }
+
+
 
     public String getheather() {
         return heather;
@@ -63,12 +81,12 @@ public class Question {
         this.answer3 = answer3;
     }
 
-    public String getRight_answer() {
-        return right_answer;
+    public int getRight_answer() {
+        return choice;
     }
 
-    public void setRight_answer(String right_answer) {
-        this.right_answer = right_answer;
+    public void setRight_answer(int choice) {
+        this.choice = choice;
     }
 }
 

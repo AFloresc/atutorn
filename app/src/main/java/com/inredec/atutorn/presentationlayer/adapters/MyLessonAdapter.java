@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.inredec.atutorn.R;
-import com.inredec.atutorn.model.businesslayer.entities.Concept;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 
 import java.util.ArrayList;
@@ -72,8 +71,6 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.ViewHo
 
         public ViewHolder(View itemView, OnLessonListener onLessonListener) {
             super(itemView);
-            //tvname=(TextView)itemView.findViewById(R.id.txt_name);
-            //img=(ImageView)itemView.findViewById(R.id.image_view);
 
             tvname=(TextView)itemView.findViewById(R.id.tv_item_lesson_title);
             img=(ImageView)itemView.findViewById(R.id.iv_item_lesson);
@@ -94,45 +91,8 @@ public class MyLessonAdapter extends RecyclerView.Adapter<MyLessonAdapter.ViewHo
         void onLessonClick(int position);
     }
 
-    public void filerList(ArrayList<Lesson> filteredList){
+    public void filterList(ArrayList<Lesson> filteredList){
         dataList = filteredList;
         notifyDataSetChanged();
     }
-/*
-    public class CustomViewHolder  extends RecyclerView.ViewHolder{
-        public final View myView;
-
-        TextView lessonTitle;
-
-        CustomViewHolder(View itemView) {
-            super(itemView);
-            myView = itemView;
-
-            //textLesson = myView.findViewById(R.id.lesson);
-            lessonTitle = (TextView) myView.findViewById(R.id.txt_name);
-
-        }
-    }
-
-    @Override
-    public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.lesson_layout, parent, false);
-        return new CustomViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull MyLessonAdapter.CustomViewHolder holder, int position) {
-        Lesson lesson = dataList.get(position);
-        Log.d("ONRESPONSE" ,"Lesson Title: "+ lesson.getTitle());
-        holder.lessonTitle.setText(lesson.getTitle());
-        //holder.textLesson.setText(dataList.get(position).getTitle());
-    }
-
-    @Override
-    public int getItemCount() {
-        return dataList.size();
-    }
-*/
-
 }

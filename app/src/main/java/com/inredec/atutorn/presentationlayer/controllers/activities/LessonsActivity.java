@@ -128,7 +128,7 @@ public class LessonsActivity extends AppCompatActivity implements MyLessonAdapte
             }
         }
 
-        myAdapter.filerList((ArrayList)filteredList);
+        myAdapter.filterList((ArrayList)filteredList);
     }
 
     //Display the retrieved data as a list//
@@ -149,15 +149,20 @@ public class LessonsActivity extends AppCompatActivity implements MyLessonAdapte
     @Override
     public void onLessonClick(int position) {
         Log.d(TAG, "onNoteClick: clicked. Item position: " + position);
-        Intent intent = new Intent(this, HelpActivity.class);
+        Intent intent = new Intent(this, LessonDetailActivity.class);
         //look for parceable objects!!
         intent.putExtra("some_object", lessons.get(position).getLessonID());
-        saveData(lessons.get(position));
-        startActivity(intent);
+        if (lessons.get(position).getContents()==null){
+            Toast.makeText(LessonsActivity.this, "La lección no tiene contenido", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            saveData(lessons.get(position));
+            startActivity(intent);
+        }
     }
 
     private void saveData(Lesson lesson){
-        // NEW METHOD https://www.youtube.com/watch?v=jcliHGR3CHo
+
         SharedPreferences sharedPreferences = getSharedPreferences("shared_preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
