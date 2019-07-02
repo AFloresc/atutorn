@@ -12,8 +12,10 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.inredec.atutorn.R;
@@ -56,6 +58,19 @@ public class MyLessonDetailAdapter extends RecyclerView.Adapter<MyLessonDetailAd
             viewHolder.title.setTypeface(null, Typeface.NORMAL);
             viewHolder.title.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
             viewHolder.title.setLineSpacing(10, 1.2f);
+            Log.d(TAG, "GetPosition: "+ content.getPosition() + " ItemCunt: " + getItemCount() + " Parameter Position: "+position);
+
+            if (content.getPosition() == getItemCount()-1){
+                // If last content --> show button to questionaty
+                viewHolder.bt_questionaty.setVisibility(View.VISIBLE);
+                viewHolder.bt_questionaty.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Log.d(TAG, "Questionary Button clicked");
+                    }
+                });
+            }
 
         }
         viewHolder.detail.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
@@ -79,12 +94,14 @@ public class MyLessonDetailAdapter extends RecyclerView.Adapter<MyLessonDetailAd
         private TextView title;
         private TextView detail;
         private ImageView img;
+        private Button bt_questionaty;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title=(TextView)itemView.findViewById(R.id.tv_item_detail_content_title);
             detail=(TextView)itemView.findViewById(R.id.tv_item_lesson_description);
             img = (ImageView)itemView.findViewById(R.id.iv_item_content);
+            bt_questionaty = (Button)itemView.findViewById(R.id.bt_questionaty);
             Log.d(TAG ,"ViewHolder");
 
         }

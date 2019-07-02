@@ -28,6 +28,7 @@ public class Question {
     @SerializedName("choice")
     private int choice;
 
+
     public Question(int id, String heather, String answer1, String answer2, String answer3, String answer4, int right_answer, int choice) {
         this.id = id;
         this.heather = heather;
@@ -47,7 +48,17 @@ public class Question {
         this.id = id;
     }
 
+    public String getHeather() {
+        return heather;
+    }
 
+    public String getAnswer4() {
+        return answer4;
+    }
+
+    public int getChoice() {
+        return choice;
+    }
 
     public String getheather() {
         return heather;
@@ -86,6 +97,18 @@ public class Question {
     }
 
     public void setRight_answer(int choice) {
+        this.choice = choice;
+    }
+
+    public void setHeather(String heather) {
+        this.heather = heather;
+    }
+
+    public void setAnswer4(String answer4) {
+        this.answer4 = answer4;
+    }
+
+    public void setChoice(int choice) {
         this.choice = choice;
     }
 }

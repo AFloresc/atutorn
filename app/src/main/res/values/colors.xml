@@ -14,4 +14,7 @@
 
     <color name="viewed_color">#00AA00</color>
 
+    <color name="red_exam">#AA0000</color>
+    <color name="green_exam">#00AA00</color>
+
 </resources>

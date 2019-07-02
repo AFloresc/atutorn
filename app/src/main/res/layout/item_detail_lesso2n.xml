@@ -54,6 +54,16 @@
             android:adjustViewBounds="true"
             />
 
+        <Button
+            android:id="@+id/bt_questionaty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_questionary"
+            android:textColor="#bbbbbb"
+            android:background="@drawable/background_bt"
+            android:visibility="gone"/>
+
+
     </LinearLayout>
 
 

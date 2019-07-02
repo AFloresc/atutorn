@@ -1,11 +1,6 @@
 package com.inredec.atutorn.model.businesslayer.entities;
 
 
-import android.content.Context;
-import android.location.Location;
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Arrays;
@@ -36,6 +31,9 @@ public class Lesson {
     @SerializedName("position")
     private int position;
 
+   //@SerializedName("questionary")
+   // private Questionary questionary;
+
     public Lesson(long lessonID, String title, String text, String image, String language, Content[] contents, long courseID, int position) {
         this.lessonID = lessonID;
         this.title = title;
@@ -45,8 +43,22 @@ public class Lesson {
         this.contents = contents;
         this.courseID = courseID;
         this.position = position;
-    }
 
+    }
+/*
+    public Lesson(long lessonID, String title, String text, String image, String language, Content[] contents, long courseID, int position, Questionary questionary) {
+        this.lessonID = lessonID;
+        this.title = title;
+        this.text = text;
+        this.image = image;
+        this.language = language;
+        this.contents = contents;
+        this.courseID = courseID;
+        this.position = position;
+        this.questionary = questionary;
+
+    }
+*/
 
     public long getLessonID() {
         return lessonID;
@@ -112,6 +124,15 @@ public class Lesson {
         this.position = position;
     }
 
+/*
+    public Questionary getQuestionary() {
+        return questionary;
+    }
+
+    public void setQuestionary(Questionary questionary) {
+        this.questionary = questionary;
+    }*/
+
     @Override
     public String toString() {
         return "Lesson{" +
@@ -121,12 +142,9 @@ public class Lesson {
                 ", image='" + image + '\'' +
                 ", language='" + language + '\'' +
                 ", contents=" + Arrays.toString(contents) +
-                ", courseID='" + courseID + '\'' +
-                ", position='" + position + '\'' +
+                ", courseID=" + courseID +
+                ", position=" + position +
+               /* ", questionary=" + questionary +*/
                 '}';
     }
-
-
-
-
 }
