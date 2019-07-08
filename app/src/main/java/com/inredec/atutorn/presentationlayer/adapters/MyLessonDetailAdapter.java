@@ -1,6 +1,7 @@
 package com.inredec.atutorn.presentationlayer.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -20,6 +21,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.inredec.atutorn.R;
 import com.inredec.atutorn.model.businesslayer.entities.Content;
+import com.inredec.atutorn.presentationlayer.controllers.activities.ContactActivity;
+import com.inredec.atutorn.presentationlayer.controllers.activities.MainMenuActivity;
+import com.inredec.atutorn.presentationlayer.controllers.activities.QuizActivity;
 
 import java.util.List;
 
@@ -66,8 +70,9 @@ public class MyLessonDetailAdapter extends RecyclerView.Adapter<MyLessonDetailAd
                 viewHolder.bt_questionaty.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
                         Log.d(TAG, "Questionary Button clicked");
+                        Intent myIntent = new Intent(view.getContext(), QuizActivity.class);
+                        context.startActivity(myIntent);
                     }
                 });
             }

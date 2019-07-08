@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class Question {
 
-    @SerializedName("Id")
-    private int id;
+    @SerializedName("questionID")
+    private int questionID;
 
-    @SerializedName("heather")
-    private String heather;
+    @SerializedName("description")
+    private String description;
 
     @SerializedName("answer1")
     private String answer1;
@@ -22,16 +22,16 @@ public class Question {
     @SerializedName("answer4")
     private String answer4;
 
-    @SerializedName("right_answer")
+    @SerializedName("goodanswer")
     private int right_answer;
 
     @SerializedName("choice")
     private int choice;
 
 
-    public Question(int id, String heather, String answer1, String answer2, String answer3, String answer4, int right_answer, int choice) {
-        this.id = id;
-        this.heather = heather;
+    public Question(int questionID, String description, String answer1, String answer2, String answer3, String answer4, int right_answer, int choice) {
+        this.questionID = questionID;
+        this.description = description;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
@@ -41,15 +41,15 @@ public class Question {
     }
 
     public int getId() {
-        return id;
+        return questionID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int questionID) {
+        this.questionID = questionID;
     }
 
-    public String getHeather() {
-        return heather;
+    public String getdescription() {
+        return description;
     }
 
     public String getAnswer4() {
@@ -60,12 +60,8 @@ public class Question {
         return choice;
     }
 
-    public String getheather() {
-        return heather;
-    }
-
-    public void setQuestion(String heather) {
-        this.heather = heather;
+    public void setQuestion(String description) {
+        this.description = description;
     }
 
     public String getAnswer1() {
@@ -93,15 +89,15 @@ public class Question {
     }
 
     public int getRight_answer() {
-        return choice;
+        return right_answer;
     }
 
     public void setRight_answer(int choice) {
         this.choice = choice;
     }
 
-    public void setHeather(String heather) {
-        this.heather = heather;
+    public void setdescription(String description) {
+        this.description = description;
     }
 
     public void setAnswer4(String answer4) {
@@ -110,6 +106,20 @@ public class Question {
 
     public void setChoice(int choice) {
         this.choice = choice;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + questionID +
+                ", description='" + description + '\'' +
+                ", answer1='" + answer1 + '\'' +
+                ", answer2='" + answer2 + '\'' +
+                ", answer3='" + answer3 + '\'' +
+                ", answer4='" + answer4 + '\'' +
+                ", right_answer=" + right_answer +
+                ", choice=" + choice +
+                '}';
     }
 }
 

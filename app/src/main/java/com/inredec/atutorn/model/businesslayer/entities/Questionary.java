@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Questionary {
 
-    @SerializedName("lessonID")
+    @SerializedName("questionaryID")
     private long questionaryID;
 
     @SerializedName("description")

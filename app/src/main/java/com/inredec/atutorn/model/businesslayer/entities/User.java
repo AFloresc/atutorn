@@ -20,7 +20,7 @@ public class User {
     private String url_image;
 
     @SerializedName("marks")
-    private ArrayList<Mark> marks;
+    private Mark[] marks;
 
 
     private String token;
@@ -29,7 +29,7 @@ public class User {
         this.name = "";
         this.mail = "";
         this.password = "";
-        this.url_image=" ";
+        this.url_image= "";
     }
 
     public User(String name, String mail, String password) {

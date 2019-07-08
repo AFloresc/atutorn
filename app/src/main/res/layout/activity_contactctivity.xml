@@ -45,25 +45,19 @@
             android:text="@string/contact_scn_from"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
-            android:paddingTop="1dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
             android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/et_contact_from"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:textSize="16sp"
-            android:inputType="textEmailAddress"
             />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_contact_scr_subject"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:text="@string/contact_scn_subject"
+            android:paddingTop="5dp"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
             android:textSize="16sp"

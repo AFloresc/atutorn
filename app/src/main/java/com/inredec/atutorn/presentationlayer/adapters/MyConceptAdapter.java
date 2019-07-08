@@ -1,7 +1,9 @@
 package com.inredec.atutorn.presentationlayer.adapters;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -21,6 +23,8 @@ import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
 
 public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.ViewHolder> {
     private static final String TAG = "MyConceptAdapter";
@@ -76,6 +80,7 @@ public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.View
 
 
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public ViewHolder(View itemView, MyConceptAdapter.OnConceptListener onLessonListener) {
             super(itemView);
             //tvname=(TextView)itemView.findViewById(R.id.txt_name);
@@ -87,6 +92,7 @@ public class MyConceptAdapter extends RecyclerView.Adapter<MyConceptAdapter.View
 
             tvDescription=(TextView)itemView.findViewById(R.id.tv_item_concept_description);
 
+            tvDescription.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
 
             this.onConceptistener = onConceptListener;
             itemView.setOnClickListener(this);

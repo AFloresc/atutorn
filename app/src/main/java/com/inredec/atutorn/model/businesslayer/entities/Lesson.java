@@ -31,8 +31,8 @@ public class Lesson {
     @SerializedName("position")
     private int position;
 
-   //@SerializedName("questionary")
-   // private Questionary questionary;
+    @SerializedName("questionary")
+    private Questionary questionary;
 
     public Lesson(long lessonID, String title, String text, String image, String language, Content[] contents, long courseID, int position) {
         this.lessonID = lessonID;
@@ -45,7 +45,7 @@ public class Lesson {
         this.position = position;
 
     }
-/*
+
     public Lesson(long lessonID, String title, String text, String image, String language, Content[] contents, long courseID, int position, Questionary questionary) {
         this.lessonID = lessonID;
         this.title = title;
@@ -58,7 +58,7 @@ public class Lesson {
         this.questionary = questionary;
 
     }
-*/
+
 
     public long getLessonID() {
         return lessonID;
@@ -124,14 +124,14 @@ public class Lesson {
         this.position = position;
     }
 
-/*
+
     public Questionary getQuestionary() {
         return questionary;
     }
 
     public void setQuestionary(Questionary questionary) {
         this.questionary = questionary;
-    }*/
+    }
 
     @Override
     public String toString() {
@@ -144,7 +144,7 @@ public class Lesson {
                 ", contents=" + Arrays.toString(contents) +
                 ", courseID=" + courseID +
                 ", position=" + position +
-               /* ", questionary=" + questionary +*/
+                ", questionary=" + questionary +
                 '}';
     }
 }
