@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.Image;
+import android.os.Build;
 import android.os.Looper;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -229,6 +231,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     // Random shuffle of questions based on Fisher–Yates shuffle
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     static void shuffleArray(Question[] questions) {
         Random rnd = ThreadLocalRandom.current();
         for (int i = questions.length - 1; i > 0; i--)
@@ -268,7 +271,7 @@ public class QuizActivity extends AppCompatActivity {
                     if (mark <9) {
                         question.setText("NOTA: " + mark + "\n¡Buena nota!");
                     } else{
-                        question.setText("NOTA: "+ mark + "\n¡Esxcelente!");
+                        question.setText("NOTA: "+ mark + "\n¡Excelente!");
                     }
                 }
             }
@@ -296,6 +299,9 @@ public class QuizActivity extends AppCompatActivity {
 
                     createMark();
 
+                   // Intent myIntent = new Intent(QuizActivity.this, MainMenuActivity.class);
+                    //startActivity(myIntent);
+
 
                 }
             });
@@ -303,7 +309,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void createMark(){
-        Mark mrk = new Mark(1l, 1, finalMark);
+        Mark mrk = new Mark(1, this.questionary.getQuestionaryID(), finalMark);
 
         Call<Mark> call = jsonPlaceHolderApi.createMark(mrk);
 
@@ -312,14 +318,14 @@ public class QuizActivity extends AppCompatActivity {
             public void onResponse(Call<Mark> call, Response<Mark> response) {
 
                 if (!response.isSuccessful()){
-                    score.setText("Code: " + response.code());
-                    Toast.makeText(QuizActivity.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                    score.setText("Code: " + response.code() + response.body());
+                    Toast.makeText(QuizActivity.this, "Code: " + response.code() + " Message: "+ response.errorBody(), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 Mark markResponse = response.body();
                 String responseContent = "";
-                Toast.makeText(QuizActivity.this, "Mark: " + markResponse.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizActivity.this, "Datos guardados", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -348,15 +354,6 @@ public class QuizActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    //All the questions have answer
-    private boolean finishedQuiz() {
-        /*for (Question question : this.lesson.getQuestionary().getQuestions()){
-            if(question.getChoice()==0){
-                return false;
-            }
-        }*/
-        return true;
-    }
 
     private void saveData(Lesson lesson, int lastQuestionIndex){
         SharedPreferences sharedPreferences = getSharedPreferences("shared_preferences", MODE_PRIVATE);

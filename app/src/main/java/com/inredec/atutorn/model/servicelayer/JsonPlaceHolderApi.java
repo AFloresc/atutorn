@@ -4,6 +4,7 @@ import com.inredec.atutorn.model.businesslayer.entities.Concept;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
 import com.inredec.atutorn.model.businesslayer.entities.Mark;
 import com.inredec.atutorn.model.businesslayer.entities.Questionary;
+import com.inredec.atutorn.model.businesslayer.entities.Report;
 import com.inredec.atutorn.model.businesslayer.entities.User;
 
 import java.util.List;
@@ -31,4 +32,7 @@ public interface JsonPlaceHolderApi {
 
    @GET("users/{userid}")
     Call<User> getUser(@Path("userid") String userID);
+
+   @GET("courses/{courseid}/statistics")
+    Call<Report> getReport(@Path("courseid") String courseid);
 }

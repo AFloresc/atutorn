@@ -81,15 +81,23 @@ public class LoginActivity extends AppCompatActivity {
 
                     // login();
                     // Cambiar activity
+                    String user = "";
+                    user = user + etUsername.getText().toString();
+                    String psw = "";
+                    psw = psw + etPassword.getText().toString();
+                    if(user.equals("agauser@hotmail.com")&& psw.equals("1234")){
+                        Intent myIntent = new Intent(LoginActivity.this, StatisticsActivity.class);
+                        startActivity(myIntent);
+                    }
 
-
-                    Intent myIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
-                    //Bundle extras = myIntent.getExtras();
-
-                    startActivity(myIntent);
-                    ///extras.putString("etUsernameValue", etUsername.getText().toString().trim());
-                    //extras.putString("etValue", etUsername.getText().toString().trim());
-                    //todo start new Activity
+                    else {
+                        Intent myIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                        //Bundle extras = myIntent.getExtras();
+                        startActivity(myIntent);
+                        ///extras.putString("etUsernameValue", etUsername.getText().toString().trim());
+                        //extras.putString("etValue", etUsername.getText().toString().trim());
+                        //todo start new Activity
+                    }
 
                 }
             }

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentationlayer.controllers.activities.StatisticsActivity"
+    android:id="@+id/swipeRefreshLayout"
+    android:background="@drawable/library_transparente">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:src="@drawable/logoatutor3" />
+
+        <TextView
+            android:id="@+id/tv_report_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="@string/report_sourse"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/statistics"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_report_coursetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Course Title"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_report_courseusers"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Number users"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_report_courselessonsread"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Number lessons read"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_report_coursemaxmark"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Max Mark"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_report_courseminmark"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Max Mark"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_report_courseavgmark"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Avg Mark"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_report_coursesearchetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Búsquedas"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_report_coursesearchterms"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Avg Mark"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_report_coursetoplessonstitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Top lessons"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_report_coursetoplessons"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Avg Mark"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/bt_report_exit"
+            android:layout_width="221dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/myselectorexit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_profile"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

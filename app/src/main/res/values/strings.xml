@@ -92,6 +92,7 @@
     <string name="bt_questionary">Cuestionario</string>
     <string name="questionary_title">Responde las preguntas</string>
     <string name="contact_user_dt_tittle">Datos de usuario</string>
+    <string name="report_sourse">Informe</string>
 
 
 </resources>

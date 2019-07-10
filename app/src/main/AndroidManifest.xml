@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentationlayer.controllers.activities.PostMarkActivity"></activity>
+        <activity android:name=".presentationlayer.controllers.activities.ConfigActivity"></activity>
+        <activity android:name=".presentationlayer.controllers.activities.StatisticsActivity" />
+        <activity android:name=".presentationlayer.controllers.activities.PostMarkActivity" />
         <activity
             android:name=".presentationlayer.controllers.activities.QuizActivity"
             android:screenOrientation="portrait" />
