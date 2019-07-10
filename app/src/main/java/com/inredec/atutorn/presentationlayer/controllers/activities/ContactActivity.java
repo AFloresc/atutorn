@@ -15,8 +15,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.inredec.atutorn.R;
+import com.inredec.atutorn.model.businesslayer.entities.User;
+import com.inredec.atutorn.model.servicelayer.JsonPlaceHolderApi;
 import com.inredec.atutorn.utilitieslayer.SimpleMail;
 
+import java.math.BigDecimal;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -28,6 +31,11 @@ import javax.mail.internet.MimeMessage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
 
@@ -36,6 +44,7 @@ public class ContactActivity extends AppCompatActivity {
     private static final String CONTACT_EMAIL_ADRESS = "atutor.contact@gmail.com";
     private static final String CONTACT_PASS ="atutor2019_12345";
     private Session session;
+    private static final String TAG = "CONTACTACTIVITY";
 
     @BindView(R.id.et_contact_subject)
     EditText et_contact_mail_subject;
@@ -49,6 +58,16 @@ public class ContactActivity extends AppCompatActivity {
     @BindView(R.id.tv_contact_scr_from)
     TextView tv_text;
 
+    @BindView(R.id.tv_profile_avg)
+    TextView tv_avgMark;
+
+    @BindView(R.id.tv_profile_username)
+    TextView tv_userName;
+
+    @BindView(R.id.tv_profile_mail)
+    TextView tv_userMail;
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -60,6 +79,43 @@ public class ContactActivity extends AppCompatActivity {
         tv_text.setJustificationMode(JUSTIFICATION_MODE_INTER_WORD);
 
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://atutor.appspot.com/api/1.0/atapi/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
+        Call<User> call = jsonPlaceHolderApi.getUser("1");
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (!response.isSuccessful()){
+                    Toast.makeText(ContactActivity.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                User user = response.body();
+
+                Log.d(TAG, response.toString());
+                Log.d(TAG, "Response body: "+ response.body().toString());
+
+                loadDataList(response.body());
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+        /*
+
+ List<Lesson> lessons = response.body();
+         Call<List<Lesson>> call = jsonPlaceHolderApi.getLessons();
+
+        call.enqueue(new Callback<List<Lesson>>() {
+         */
+
         bt_contact_mail_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,13 +125,10 @@ public class ContactActivity extends AppCompatActivity {
                     String message = et_contact_mail_message.getText().toString();
 
 
-                    sendMail(subject, message);
-
-                    if(subject.isEmpty()){
-                        Toast.makeText(ContactActivity.this, "Debes introducir un Asunto", Toast.LENGTH_LONG).show();
-                    }else if(message.isEmpty()){
-                        Toast.makeText(ContactActivity.this, "Debes introducir un Mensaje", Toast.LENGTH_LONG).show();
-                    }else{
+                    if(subject.isEmpty() || (message.isEmpty())){
+                        if(subject.isEmpty()) Toast.makeText(ContactActivity.this, "Debes introducir un Asunto", Toast.LENGTH_LONG).show();
+                        else  Toast.makeText(ContactActivity.this, "Debes introducir un Mensaje", Toast.LENGTH_LONG).show();
+                    }else {
                         //Todos lso campos rellenados
                         sendMail(subject, message);
                     }
@@ -84,6 +137,37 @@ public class ContactActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void loadDataList(User user) {
+        tv_userName.setText("Nombre: " +  user.getName());
+        tv_userMail.setText("Email: " +  user.getMail());
+        if (user.getMarks().length==0){
+            tv_avgMark.setText("Nota media: No hay notasregistradas");
+        }else{
+            tv_avgMark.setText("Nota media: " + calcAvg(user.getMarks()));
+        }
+
+
+    }
+
+    private float calcAvg(int[] marks) {
+        int size = marks.length;
+        if (size == 0) return 0;
+        float sum = 0;
+        for (int i : marks){
+            sum = sum + i;
+        }
+        Log.d(TAG, "SUMA NOTAS: "+ sum + " TAMAÑO: ");
+
+        return round(sum/size, 2);
+    }
+
+    public static float round(float d, int decimalPlace) {
+        BigDecimal bd = new BigDecimal(Float.toString(d));
+        bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
+        Log.d(TAG, "Sin redondear: "+ d + " Redondeado: " + bd.floatValue());
+        return bd.floatValue();
     }
 
     private void sendMail(String subject, String message){

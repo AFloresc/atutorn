@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.inredec.atutorn.R;
 import com.inredec.atutorn.model.businesslayer.entities.Lesson;
+import com.inredec.atutorn.model.businesslayer.entities.Mark;
 import com.inredec.atutorn.model.businesslayer.entities.Question;
 import com.inredec.atutorn.model.businesslayer.entities.Questionary;
 import com.inredec.atutorn.model.servicelayer.JsonPlaceHolderApi;
@@ -81,6 +82,10 @@ public class QuizActivity extends AppCompatActivity {
 
     private int index;
 
+    private int finalMark;
+
+    private JsonPlaceHolderApi jsonPlaceHolderApi;
+
     private static final String TAG = "QuizActivity";
     @Override
     public void onBackPressed() {
@@ -131,7 +136,7 @@ public class QuizActivity extends AppCompatActivity {
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
        this.lesson = loadLessonData();
-      
+
        this.index = 0;
 
         Log.d(TAG, "LessonID: "+this.lesson.getLessonID());
@@ -249,6 +254,7 @@ public class QuizActivity extends AppCompatActivity {
         else{
             question.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
             int mark = getScore(quest);
+            this.finalMark = mark;
             if (mark < 5){
                 // Paint it red
                 question.setTextColor(ContextCompat.getColor(this, R.color.red_exam));
@@ -279,11 +285,48 @@ public class QuizActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     //Create object mark
-                    // Save it on sharedPrefs
-                    // Start
+                    // post it
+                    // redirect to lesson activity
+
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("https://atutor.appspot.com/api/1.0/atapi/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                    jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
+                    createMark();
+
+
                 }
             });
         }
+    }
+
+    private void createMark(){
+        Mark mrk = new Mark(1l, 1, finalMark);
+
+        Call<Mark> call = jsonPlaceHolderApi.createMark(mrk);
+
+        call.enqueue(new Callback<Mark>() {
+            @Override
+            public void onResponse(Call<Mark> call, Response<Mark> response) {
+
+                if (!response.isSuccessful()){
+                    score.setText("Code: " + response.code());
+                    Toast.makeText(QuizActivity.this, "Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Mark markResponse = response.body();
+                String responseContent = "";
+                Toast.makeText(QuizActivity.this, "Mark: " + markResponse.toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Mark> call, Throwable t) {
+                Toast.makeText(QuizActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void checkResult(int val){

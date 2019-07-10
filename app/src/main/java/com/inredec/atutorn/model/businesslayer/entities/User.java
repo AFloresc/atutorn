@@ -3,6 +3,7 @@ package com.inredec.atutorn.model.businesslayer.entities;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class User {
@@ -10,7 +11,7 @@ public class User {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("mail")
+    @SerializedName("email")
     private String mail;
 
     @SerializedName("password")
@@ -20,10 +21,21 @@ public class User {
     private String url_image;
 
     @SerializedName("marks")
-    private Mark[] marks;
+    private int[] marks;
 
 
     private String token;
+
+
+
+    public User(String name, String mail, String password, String url_image, int[] marks, String token) {
+        this.name = name;
+        this.mail = mail;
+        this.password = password;
+        this.url_image = url_image;
+        this.marks = marks;
+        this.token = token;
+    }
 
     public User(){
         this.name = "";
@@ -79,6 +91,15 @@ public class User {
         this.token = token;
     }
 
+
+    public int[] getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int[] marks) {
+        this.marks = marks;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -86,6 +107,9 @@ public class User {
                 ", mail='" + mail + '\'' +
                 ", password='" + password + '\'' +
                 ", url_image='" + url_image + '\'' +
+                ", marks=" + Arrays.toString(marks) +
+                ", token='" + token + '\'' +
                 '}';
     }
+
 }

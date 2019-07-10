@@ -64,7 +64,7 @@ public class MyLessonDetailAdapter extends RecyclerView.Adapter<MyLessonDetailAd
             viewHolder.title.setLineSpacing(10, 1.2f);
             Log.d(TAG, "GetPosition: "+ content.getPosition() + " ItemCunt: " + getItemCount() + " Parameter Position: "+position);
 
-            if (content.getPosition() == getItemCount()-1){
+            if (position == getItemCount()-1){
                 // If last content --> show button to questionaty
                 viewHolder.bt_questionaty.setVisibility(View.VISIBLE);
                 viewHolder.bt_questionaty.setOnClickListener(new View.OnClickListener() {

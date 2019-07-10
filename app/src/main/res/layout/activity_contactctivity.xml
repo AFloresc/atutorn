@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:background="@drawable/library_transparente"
     tools:context=".presentationlayer.controllers.activities.ContactActivity">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,6 +20,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
@@ -25,6 +29,59 @@
             android:layout_gravity="center_horizontal"
             android:padding="16dp"
             android:src="@drawable/logoatutor3" />
+
+        <TextView
+            android:id="@+id/tv_userTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="@string/contact_user_dt_tittle"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/user"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_profile_username"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Nombre"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_profile_mail"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Correo"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_profile_avg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Avg mark"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"/>
 
 
         <TextView
@@ -36,6 +93,7 @@
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -99,7 +157,7 @@
             android:layout_height="58dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/myselectorsend"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,4 +167,4 @@
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

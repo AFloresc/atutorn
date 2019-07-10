@@ -91,6 +91,7 @@
     <string name="etail_lesson_title">Lesson Title</string>
     <string name="bt_questionary">Cuestionario</string>
     <string name="questionary_title">Responde las preguntas</string>
+    <string name="contact_user_dt_tittle">Datos de usuario</string>
 
 
 </resources>
